@@ -11,6 +11,8 @@ class LucienCommand: public CommandBase{
         virtual bool IsFinished();
         virtual void End();
         virtual void Interrupted();
+    private:
+        Victor* motorA;
 };
 
 #endif

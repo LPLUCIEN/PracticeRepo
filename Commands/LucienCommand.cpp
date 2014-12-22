@@ -1,15 +1,19 @@
-#include "BallTrapClose.h"
+#include "PracticeCommand.h"
 
 LucienCommand :: LucienCommand(): CommandBase("LucienCommand") {
     Requires (practice);
+    motorA = new Victor(1);
 }
 
+LucienCommand :: ~LucienCommand(){
+    delete motorA
+}
 void LucienCommand :: Initialize() {
-    practice->moveMotor(1.0);
+    motorA->Set(1.0);
 }
 
 void LucienCommand :: Execute() {
-    practice->moveMotor(1.0);
+    motorA->Set(1.0);
 }
 
 bool LucienCommand :: IsFinished() {
@@ -21,5 +25,5 @@ void LucienCommand :: End() {
 }
 
 void LucienCommand :: Interrupted() {
-    practice->moveMotor(0.0);
+    motorA->Set(0.0);
 }
